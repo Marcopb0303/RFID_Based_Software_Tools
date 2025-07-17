@@ -231,22 +231,22 @@ def print_detailed_analysis(analysis: dict, dataset_name: str) -> None:
     if analysis['one_nn_back_correct'] > analysis['one_nn_100_correct']:
         back_additional_benefit = analysis['one_nn_back_correct'] - analysis['one_nn_100_correct']
         back_overlap_pct = (analysis['back_also_in_100'] / analysis['back_additional']) * 100 if analysis['back_additional'] > 0 else 0
-        print(f"   Q1: What % of BACK benefits are already in 1NN ±100?")
+        print(f"   What % of BACK benefits are already in 1NN ±100?")
         print(f"       → {back_overlap_pct:.1f}% of BACK relationships are also ±100")
         print(f"       → BACK adds {back_additional_benefit} additional correct predictions")
     else:
-        print(f"   Q1: What % of BACK benefits are already in 1NN ±100?")
+        print(f"   What % of BACK benefits are already in 1NN ±100?")
         print(f"       → 100% - All BACK relationships are covered by ±100 arithmetic")
     
     # Question 2: What percentage of SIDE (Map neighbors) match with arithmetic 1NN?
     if analysis['neighbor_map_additional'] > 0:
         side_map_overlap_pct = (analysis['side_map_also_in_100'] / analysis['neighbor_map_additional']) * 100
-        print(f"   Q2: What % of SIDE (Map) benefits match ±100 arithmetic?")
+        print(f"   What % of SIDE (Map) benefits match ±100 arithmetic?")
         print(f"       → {side_map_overlap_pct:.1f}% of SIDE relationships are also ±100")
         print(f"       → {analysis['side_map_only']} SIDE relationships are unique (not ±100)")
         print(f"       → {analysis['hundred_only']} ±100 relationships are unique (not SIDE)")
     else:
-        print(f"   Q2: What % of SIDE (Map) benefits match ±100 arithmetic?")
+        print(f"   What % of SIDE (Map) benefits match ±100 arithmetic?")
         print(f"       → No additional SIDE relationships found")
     
     # Question 3: Performance ranking
